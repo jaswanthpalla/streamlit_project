@@ -10,7 +10,7 @@ df['date'] = pd.to_datetime(df['date'],errors='coerce')
 df['month'] = df['date'].dt.month
 df['year'] = df['date'].dt.year
 df.rename(columns={'amount':'amount in crs'},inplace=True)
-#st.dataframe(df)
+st.dataframe(df)
 
 
 
