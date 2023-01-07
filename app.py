@@ -190,6 +190,8 @@ def load_investor_details(investor):
 
 ######################################################################################################
 ################################# STARTUP FUNCTION ##################################################
+
+
 def load_startup_details(startup):
     st.header(startup+'Analysis')
     last5_df = df[df['startup'].str.contains(startup)][['date', 'startup', 'vertical', 'city', 'round', 'amount in crs']]
@@ -201,7 +203,7 @@ def load_startup_details(startup):
     try:
      vertical_series = df[df['startup'].str.contains(startup)].groupby('vertical')['amount in crs'].sum()
      st.dataframe(vertical_series)
-     if vertical_series.count() <= 1:
+     if vertical_series.count() < 1:
        st.error('data is not sufficient to plot graph please selct another startup')
      else:
       fig1,ax1 = plt.subplots()
@@ -214,7 +216,7 @@ def load_startup_details(startup):
     st.subheader('vertical proportion chart analysis')
     vertical_series = df[df['startup'].str.contains(startup)].groupby('vertical')['amount in crs'].sum()
     try:
-      if vertical_series.count() <= 1:
+      if vertical_series.count() < 1:
         st.error('data is not sufficient to plot graph please selct another startup')
       else:
        fig2,ax2 = plt.subplots()
@@ -231,7 +233,7 @@ def load_startup_details(startup):
     subvertical_series = df[df['startup'].str.contains(startup)].groupby('subvertical')['amount in crs'].sum()
     st.dataframe(subvertical_series)
     try:
-      if subvertical_series.size <=1:
+      if subvertical_series.size <1:
        st.error('Please  kindly ignore the carts as the is not sufficient to plot select anoher one from dropdown')
       else:
        fig3,ax3 = plt.subplots()
@@ -244,7 +246,7 @@ def load_startup_details(startup):
     st.subheader(' sub--vertical proportion chart analysis')
     subvertical_series = df[df['startup'].str.contains(startup)].groupby('subvertical')['amount in crs'].sum()
     try:
-     if subvertical_series.size <=1:
+     if subvertical_series.size <1:
          st.error('Please  kindly ignore the carts as the is not sufficient to plot select anoher one from dropdown')
      else:
         fig4,ax4 = plt.subplots()
@@ -258,7 +260,7 @@ def load_startup_details(startup):
     round_series = df[df['startup'].str.contains(startup)].groupby('round')['amount in crs'].sum()
     st.dataframe(round_series)
     try:
-      if  round_series.count()<=1:
+      if  round_series.count()<1:
         st.error('Please  kindly ignore the carts as the is not sufficient to plot select anoher one from dropdown')
       else:
         fig4, ax4 = plt.subplots()
@@ -271,7 +273,7 @@ def load_startup_details(startup):
     st.subheader('round--  Proportion analysis')
     round_series = df[df['startup'].str.contains(startup)].groupby('round')['amount in crs'].sum()
     try:
-      if round_series.count()<=1:
+      if round_series.count()<1:
          st.error('Please  kindly ignore the carts as the is not sufficient to plot select anoher one from dropdown')
       else:
         fig5, ax5 = plt.subplots()
@@ -286,7 +288,7 @@ def load_startup_details(startup):
     city_series = df[df['startup'].str.contains(startup)].groupby('city')['amount in crs'].sum()
     st.dataframe(city_series)
     try:
-        if city_series.count()<=1:
+        if city_series.count()<1:
           st.error('data is not present to plot kindly select other startup')
         else:
           fig6, ax6 = plt.subplots()
@@ -300,7 +302,7 @@ def load_startup_details(startup):
     st.subheader('city--  Proportion Analysis')
     city_series = df[df['startup'].str.contains(startup)].groupby('city')['amount in crs'].sum()
     try:
-        if city_series.count()<=1:
+        if city_series.count()<1:
           st.error('data is not present to plot kindly select other startup')
         else:
           fig7, ax7 = plt.subplots()
