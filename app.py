@@ -11,7 +11,7 @@ df['month'] = df['date'].dt.month
 df['year'] = df['date'].dt.year
 df.rename(columns={'amount':'amount in crs'},inplace=True)
 st.header('App by Jaswanth Palla')
-st.subheader('Complete Analysis Of Sartups in India From (2014- 2020)')
+st.subheader('Complete Analysis Of Startups in India From (2014- 2020)')
 st.dataframe(df)
 
 
