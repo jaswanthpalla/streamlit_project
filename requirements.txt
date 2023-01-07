@@ -40,7 +40,6 @@ mpmath==1.2.1
 multidict==6.0.4
 munkres==1.1.4
 mypy-extensions==0.4.3
-navigator-updater==0.3.0
 openpyxl==3.0.10
 pandoc==2.3
 patsy==0.5.2
