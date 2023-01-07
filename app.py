@@ -286,7 +286,7 @@ def load_startup_details(startup):
     city_series = df[df['startup'].str.contains(startup)].groupby('city')['amount in crs'].sum()
     st.dataframe(city_series)
     try:
-        if city_series.count<=1:
+        if city_series.count()<=1:
           st.error('data is not present to plot kindly select other startup')
         else:
           fig6, ax6 = plt.subplots()
@@ -300,7 +300,7 @@ def load_startup_details(startup):
     st.subheader('city--  Proportion Analysis')
     city_series = df[df['startup'].str.contains(startup)].groupby('city')['amount in crs'].sum()
     try:
-        if city_series.count<=1:
+        if city_series.count()<=1:
           st.error('data is not present to plot kindly select other startup')
         else:
           fig7, ax7 = plt.subplots()
